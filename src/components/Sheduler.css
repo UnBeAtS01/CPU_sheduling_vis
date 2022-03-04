@@ -1,0 +1,33 @@
+.non_premtive {
+  margin: 5% auto;
+  background: rgba(35, 38, 44, 0.55);
+  box-shadow: 0 2px 4px 0 rgba(176, 7, 182, 0.616);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgba(95, 40, 97, 0.822);
+  width: 200px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.button_sheduler {
+  display: flex;
+  padding: 2px 3px;
+  width: 90%;
+  justify-content: start;
+  align-items: center;
+  font-size: 16px;
+  background-color: #a107c7;
+  border-radius: 7px;
+  border: none;
+  text-decoration: none;
+}
+.button_sheduler:hover {
+  background-color: inherit;
+  color: #a107c7;
+  cursor: pointer;
+}

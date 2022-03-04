@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
+import logo from "./logo.svg";
+import "./App.css";
+import Display from "./components/Display";
+import Sheduler from "./components/Sheduler";
+import * as Algo from "./components/Algo.js";
+import { useState } from "react";
 function App() {
+  const [process, setProcess] = useState("IDEAL");
+  const [Time, setTime] = useState("0");
+  const [preemptive, setPre] = useState(false);
+  const [nonPreemptive, setNpre] = useState(false);
+  const [array, setArray] = useState([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Display array={array} />
+      <Sheduler setArray={setArray} />
     </div>
   );
 }
