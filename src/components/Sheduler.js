@@ -12,6 +12,14 @@ function Sheduler({ setArray }) {
       val = Algo.SJF();
     } else if (string === "ljf") {
       val = Algo.LJF();
+    } else if (string === "lrtf") {
+      val = Algo.LRTF();
+    } else if (string === "srtf") {
+      val = Algo.SRTF();
+    } else if (string === "priority_based") {
+      val = Algo.Priority_based();
+    } else if (string === "round-robin") {
+      val = Algo.Round_robin();
     }
     setArray(val);
   };
@@ -44,26 +52,26 @@ function Sheduler({ setArray }) {
           <div style={{ color: "#828BA2", FontSize: 25 }}>Pre-emptive</div>
           <button
             className="button_sheduler"
-            onClick={() => runSheduler("fcfs")}
+            onClick={() => runSheduler("srtf")}
           >
             <AddRoundedIcon /> SRTF
           </button>
           <button
             className="button_sheduler"
-            onClick={() => runSheduler("sjf")}
+            onClick={() => runSheduler("lrtf")}
           >
             <AddRoundedIcon /> LRTF
           </button>
           <button
             className="button_sheduler"
-            onClick={() => runSheduler("ljf")}
+            onClick={() => runSheduler("round-robin")}
           >
             <AddRoundedIcon />
             ROUND-ROBIN
           </button>
           <button
             className="button_sheduler"
-            onClick={() => runSheduler("ljf")}
+            onClick={() => runSheduler("priority_based")}
           >
             <AddRoundedIcon />
             PRIORITY BASED
