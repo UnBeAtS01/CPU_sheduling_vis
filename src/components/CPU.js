@@ -4,6 +4,7 @@ function CPU({ array }) {
   const [process, setproccess] = useState("IDEAL");
   const [TIME, setTime] = useState(0);
   const [newarray, setArray] = useState([]);
+  const [color, setColor] = useState(-1);
 
   useEffect(() => {
     let currarray = [];
@@ -13,6 +14,7 @@ function CPU({ array }) {
       if (j == array.length) {
         setTimeout(() => {
           setproccess("IDEAL");
+          setColor(newk);
           setTime(0);
         }, 3000 * (k + 1));
         continue;
@@ -23,6 +25,7 @@ function CPU({ array }) {
         setTimeout(() => {
           setproccess("IDEAL");
           setTime(newk);
+          setColor(newk);
         }, 3000 * (k + 1));
         j--;
       } else {
@@ -30,6 +33,7 @@ function CPU({ array }) {
         setTimeout(() => {
           setproccess(array[j][0]);
           setTime(newk);
+          setColor(newk);
         }, 3000 * (k + 1));
       }
 
@@ -58,15 +62,11 @@ function CPU({ array }) {
             <div style={{ color: "purple" }}>Gantt Chart</div>
             <div className="table_process">
               {newarray.length &&
-                newarray.map((ele) => (
+                newarray.map((ele, index) => (
                   <div
-                    style={{
-                      borderTop: "1px solid #c906f580",
-                      color: "purple",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
+                    className={`${
+                      color === index ? `currprocess` : `normalprocess`
+                    }`}
                   >
                     {ele}
                   </div>

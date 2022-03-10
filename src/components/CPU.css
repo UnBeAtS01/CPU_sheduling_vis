@@ -7,7 +7,6 @@
 }
 .process_box {
   position: relative;
-
   overflow: hidden;
   line-height: 32px;
   width: 400px;
@@ -79,4 +78,18 @@
 }
 .gant_chart {
   margin-right: 50px;
+}
+.currprocess {
+  background-color: purple;
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.normalprocess {
+  border-top: 1px solid #c906f580;
+  color: purple;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

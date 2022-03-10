@@ -1,6 +1,6 @@
 .non_premtive {
   margin: 5% auto;
-  background: rgba(35, 38, 44, 0.55);
+  background: #23262c8c;
   box-shadow: 0 2px 4px 0 rgba(176, 7, 182, 0.616);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
