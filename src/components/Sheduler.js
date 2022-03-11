@@ -3,23 +3,23 @@ import ProccessTable from "./Table.js";
 import "./Sheduler.css";
 import * as Algo from "./Algo.js";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
-function Sheduler({ setArray }) {
+function Sheduler({ setArray, processTable }) {
   const runSheduler = (string) => {
     let val = [];
     if (string === "fcfs") {
-      val = Algo.FCFS();
+      val = Algo.FCFS(processTable);
     } else if (string === "sjf") {
-      val = Algo.SJF();
+      val = Algo.SJF(processTable);
     } else if (string === "ljf") {
-      val = Algo.LJF();
+      val = Algo.LJF(processTable);
     } else if (string === "lrtf") {
-      val = Algo.LRTF();
+      val = Algo.LRTF(processTable);
     } else if (string === "srtf") {
-      val = Algo.SRTF();
+      val = Algo.SRTF(processTable);
     } else if (string === "priority_based") {
-      val = Algo.Priority_based();
+      val = Algo.Priority_based(processTable);
     } else if (string === "round-robin") {
-      val = Algo.Round_robin();
+      val = Algo.Round_robin(processTable);
     }
     setArray(val);
   };
@@ -79,7 +79,7 @@ function Sheduler({ setArray }) {
         </div>
       </div>
 
-      <ProccessTable />
+      <ProccessTable array={processTable} />
     </div>
   );
 }

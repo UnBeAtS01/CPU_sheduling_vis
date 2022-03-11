@@ -1,14 +1,4 @@
-let arr = [
-  ["P1", 0, 2, 2],
-  ["P2", 1, 3, 1],
-  ["P3", 0, 1, 2],
-  ["P4", 5, 1, 0],
-  ["P5", 2, 4, 0],
-  ["P6", 5, 2, 6],
-  ["P7", 19, 5, 6],
-];
-
-export const FCFS = () => {
+export const FCFS = (arr) => {
   let newarr = JSON.parse(JSON.stringify(arr));
   newarr.sort(function (a, b) {
     return a[1] - b[1];
@@ -25,7 +15,7 @@ export const FCFS = () => {
   return newarr2;
 };
 
-export const SJF = () => {
+export const SJF = (arr) => {
   let newarr = JSON.parse(JSON.stringify(arr));
   let finalarr = [];
 
@@ -69,7 +59,7 @@ export const SJF = () => {
   return newarr2;
 };
 
-export const LJF = () => {
+export const LJF = (arr) => {
   let newarr = JSON.parse(JSON.stringify(arr));
   let finalarr = [];
 
@@ -112,7 +102,7 @@ export const LJF = () => {
   return newarr2;
 };
 
-export const SRTF = () => {
+export const SRTF = (arr) => {
   let newarr = JSON.parse(JSON.stringify(arr));
   let finalarr = [];
   let t = 0;
@@ -148,7 +138,7 @@ export const SRTF = () => {
   return finalarr;
 };
 
-export const LRTF = () => {
+export const LRTF = (arr) => {
   let newarr = JSON.parse(JSON.stringify(arr));
   let finalarr = [];
   let t = 0;
@@ -184,7 +174,7 @@ export const LRTF = () => {
   return finalarr;
 };
 
-export const Priority_based = () => {
+export const Priority_based = (arr) => {
   let newarr = JSON.parse(JSON.stringify(arr));
   let finalarr = [];
   let t = 0;
@@ -220,7 +210,7 @@ export const Priority_based = () => {
   return finalarr;
 };
 
-export const Round_robin = () => {
+export const Round_robin = (arr) => {
   let newarr = JSON.parse(JSON.stringify(arr));
   let finalarr = [];
 

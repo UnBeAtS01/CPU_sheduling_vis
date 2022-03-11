@@ -28,49 +28,50 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(Process, Arrival, BurstTime, Priority) {
+function createData(row) {
+  let Process = row[0];
+  let Arrival = row[1];
+  let BurstTime = row[2];
+  let Priority = row[3];
   return { Process, Arrival, BurstTime, Priority };
 }
 
-const rows = [
-  createData("P1", 0, 2, 2),
-  createData("P2", 1, 3, 1),
-  createData("P3", 0, 1, 2),
-  createData("P4", 5, 1, 0),
-  createData("P5", 2, 4, 0),
-  createData("P6", 5, 2, 6),
-  createData("P7", 19, 5, 6),
-];
-
-export default function CustomizedTables() {
+export default function CustomizedTables({ array, setProcessTable }) {
+  const [rows, setRow] = React.useState([]);
+  React.useEffect(() => {
+    let val = array.map((ele) => createData(ele));
+    setRow(val);
+  }, [array]);
   return (
-    <TableContainer
-      styled={{ backgroundColor: "transparent" }}
-      component={Paper}
-    >
-      <Table
-        sx={{ Width: 300, Height: 300, fontSize: 14 }}
-        aria-label="customized table"
+    <>
+      <TableContainer
+        styled={{ backgroundColor: "transparent" }}
+        component={Paper}
       >
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Process</StyledTableCell>
-            <StyledTableCell align="right">Arrival Time</StyledTableCell>
-            <StyledTableCell align="right">Burst Time</StyledTableCell>
-            <StyledTableCell align="right">Priority</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.Process}>
-              <StyledTableCell align="right">{row.Process}</StyledTableCell>
-              <StyledTableCell align="right">{row.Arrival}</StyledTableCell>
-              <StyledTableCell align="right">{row.BurstTime}</StyledTableCell>
-              <StyledTableCell align="right">{row.Priority}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+        <Table
+          sx={{ Width: 300, Height: 300, fontSize: 14 }}
+          aria-label="customized table"
+        >
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Process</StyledTableCell>
+              <StyledTableCell align="right">Arrival Time</StyledTableCell>
+              <StyledTableCell align="right">Burst Time</StyledTableCell>
+              <StyledTableCell align="right">Priority</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <StyledTableRow key={row.Process}>
+                <StyledTableCell align="right">{row.Process}</StyledTableCell>
+                <StyledTableCell align="right">{row.Arrival}</StyledTableCell>
+                <StyledTableCell align="right">{row.BurstTime}</StyledTableCell>
+                <StyledTableCell align="right">{row.Priority}</StyledTableCell>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </>
   );
 }
